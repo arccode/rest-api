@@ -1,7 +1,6 @@
 # rest-api
 
- 
-[设计文档](http://arccode.net/2015/04/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/)
+<a href="http://arccode.net/2015/04/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/" target="_blank">设计文档</a>
 
 ## 开发部署
 
