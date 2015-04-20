@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <!-- Spring -->
+    <!-- 配置Spring配置文件路径 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:spring-root.xml
+        </param-value>
+    </context-param>
+
+    <!-- 配置Spring上下文监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- CORS 过滤器 -->
+    <filter>
+        <filter-name>corsFilter</filter-name>
+        <filter-class>com.arccode.web.filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>corsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Spring MVC 核心控制器 DispatcherServlet 配置 -->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <!-- 拦截所有/rest/* 的请求,交给DispatcherServlet处理,性能最好 -->
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- 首页 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
